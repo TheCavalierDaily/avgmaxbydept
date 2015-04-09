@@ -1,0 +1,38 @@
+<html>
+  <head>
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+      google.load("visualization", "1.1", {packages:["bar"]});
+      google.setOnLoadCallback(drawChart);
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+           ['Division/Office', 'Avg Salary', 'Max Salary'],
+          ['Pres', 92104, 494700],
+          ['Health System', 91900, 700000],
+          ['Diversity & Equity', 89277, 328900],
+          ['Athletics', 76447, 450000],
+          ['Development', 68443, 437400],
+          ['Provost', 67984, 406850],
+          ['Student Affairs', 64955, 254700]      
+        ]);
+
+        var options = {
+          chart: {
+            title: 'Average and Max Salary for Select Non-Academic Organzations, 2014-2015',
+            subtitle: 'Salary figures for University divisions not affiliated with a specific school',
+          },
+          bars: 'vertical' // Required for Material Bar Charts.
+        };
+
+        var chart = new google.charts.Bar(document.getElementById('barchart_material'));
+
+        chart.draw(data, options);
+      }
+    </script>
+
+
+  </head>
+  <body>
+    <div id="barchart_material" style="width: 850px; height: 600px;"></div>
+  </body>
+</html>
